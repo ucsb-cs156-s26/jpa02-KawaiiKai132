@@ -1,6 +1,7 @@
 package edu.ucsb.cs156.spring.hello;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.times;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -35,9 +36,9 @@ public class TeamTest {
         
         String test = "test";
 
-        Team teamdiff = t1;
-        // teamdiff.setName("notfoo");
-        // teamdiff.addMember("notbar");
+        Team teamdiff = new Team("test-team");
+        teamdiff.setName("foo");
+        teamdiff.addMember("notbar");;
 
         Team diff =new Team("test");
         diff.setName("notfoo");
@@ -45,7 +46,7 @@ public class TeamTest {
 
         assert(t1.equals(t1));
         assertEquals(t1.equals(test), false);
-        assertEquals(t1.equals(teamdiff),true);
+        assertEquals(t1.equals(teamdiff),false);
         assertEquals((t1.equals(diff)),false);
         
     }
