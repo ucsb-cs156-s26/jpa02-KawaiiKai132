@@ -29,24 +29,25 @@ public class TeamTest {
     
     @Test 
     public void check_equals(){
-        Team t1 = new Team();
+        Team t1 = new Team("test-team");
         t1.setName("foo");
         t1.addMember("bar");
         
         String test = "test";
 
-        Team samesame = new Team();
-        samesame.setName("foo");
-        samesame.addMember("bar");
+        Team teamdiff = t1;
+        // teamdiff.setName("notfoo");
+        // teamdiff.addMember("notbar");
 
         Team diff =new Team("test");
-        samesame.setName("notfoo");
-        samesame.addMember("notbar");
+        diff.setName("notfoo");
+        diff.addMember("notbar");
 
         assert(t1.equals(t1));
         assertEquals(t1.equals(test), false);
+        assertEquals(t1.equals(teamdiff),true);
         assertEquals((t1.equals(diff)),false);
-        // assertEquals(t1.getName().equals(diff.getName()),false);
+        
     }
 
     @Test
